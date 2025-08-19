@@ -24,7 +24,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 script {
-                    withDockerRegistry([credentialsId: 'Dockerhub-cre', url: '']) {
+                    withDockerRegistry([credentialsId: 'Dockerhub-cre', url: 'https://index.docker.io/v1/']) {
                         sh "docker push $DOCKER_HUB/$IMAGE_NAME:latest"
                     }
                 }
@@ -41,4 +41,5 @@ pipeline {
         }
     }
 }
+
 
