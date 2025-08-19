@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_HUB = 'amol297'
         IMAGE_NAME = 'flask-k8s-app'
+        DOCKER_BUILDKIT = '0'   // disable BuildKit
     }
 
     stages {
@@ -43,3 +44,4 @@ pipeline {
         }
     }
 }
+
