@@ -16,6 +16,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
+                    // Classic docker build
                     sh "docker build -t $DOCKER_HUB/$IMAGE_NAME:latest ."
                 }
             }
@@ -24,6 +25,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 script {
+                    // Login + push using Jenkins credentials
                     withDockerRegistry([credentialsId: 'Dockerhub-cre', url: 'https://index.docker.io/v1/']) {
                         sh "docker push $DOCKER_HUB/$IMAGE_NAME:latest"
                     }
@@ -41,5 +43,3 @@ pipeline {
         }
     }
 }
-
-
