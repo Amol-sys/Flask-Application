@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_HUB = 'amol297'
         IMAGE_NAME = 'flask-k8s-app'
+        KUBECONFIG = "/var/lib/jenkins/.kube/config"
     }
 
     stages {
@@ -41,3 +42,4 @@ pipeline {
         }
     }
 }
+
